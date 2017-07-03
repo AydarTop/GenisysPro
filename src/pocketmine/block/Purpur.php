@@ -30,12 +30,13 @@ use pocketmine\math\Vector3;
 use pocketmine\Player;
 
 class Purpur extends Solid{
-
-	protected $id = self::PURPUR;
 	
     const PURPUR_NORMAL = 0;
 	const PURPUR_PILLAR = 2;
 	const PURPUR_PILLAR2 = 3;
+	
+
+	protected $id = self::PURPUR;
 
 	public function __construct($meta = 0){
 		$this->meta = $meta;
