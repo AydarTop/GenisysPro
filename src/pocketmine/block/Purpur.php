@@ -52,9 +52,9 @@ class Purpur extends Solid{
 	public function getName() : string{
 		static $names = [
 			0 => "Purpur Block",
-			 => "",
-            3 => "Purpur Pillar",
-		];
+			1 => "",
+            2 => "Purpur Pillar",
+		];           
 
 		return $names[$this->meta & 0x03];
 	}
