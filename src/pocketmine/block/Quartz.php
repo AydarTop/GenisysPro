@@ -48,7 +48,7 @@ class Quartz extends Solid{
 			0 => "Quartz Block",
 			1 => "Chiseled Quartz Block",
 			2 => "Quartz Pillar",
-			3 => "Quartz Block",
+			3 => "Quartz Pillar",
 		];
 		return $names[$this->meta & 0x03];
 	}
