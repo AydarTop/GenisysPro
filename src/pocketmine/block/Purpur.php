@@ -26,10 +26,16 @@ namespace pocketmine\block;
 
 use pocketmine\item\Item;
 use pocketmine\item\Tool;
+use pocketmine\math\Vector3;
+use pocketmine\Player;
 
 class Purpur extends Solid{
 
 	protected $id = self::PURPUR;
+	
+    const PURPUR_NORMAL = 0;
+	const PURPUR_PILLAR = 2;
+	const PURPUR_PILLAR2 = 3;
 
 	public function __construct($meta = 0){
 		$this->meta = $meta;
@@ -47,9 +53,26 @@ class Purpur extends Solid{
 		static $names = [
 			0 => "Purpur Block",
 			2 => "Purpur Pillar",
+            3 => "Purpur Pillar",
 		];
 
 		return $names[$this->meta & 0x0f] ?? "Purpur Block"; //TODO fix properly;
+	}
+	
+	public function place(Item $item, Block $block, Block $target, $face, $fx, $fy, $fz, Player $player = null){
+		if($this->meta === 2){
+			$faces = [
+				0 => 0,
+				1 => 0,
+				2 => 0b1000,
+				3 => 0b1000,
+				4 => 0b0100,
+				5 => 0b0100,
+			];
+			$this->meta = ($this->meta & 0x03) | $faces[$face];
+		}
+		$this->getLevel()->setBlock($block, $this, true, true);
+		return true;
 	}
 
 	public function getDrops(Item $item) : array {
