@@ -33,7 +33,6 @@ class Purpur extends Solid{
 	
     const PURPUR_NORMAL = 0;
 	const PURPUR_PILLAR = 2;
-	const PURPUR_PILLAR2 = 3;
 	
 
 	protected $id = self::PURPUR;
@@ -53,11 +52,11 @@ class Purpur extends Solid{
 	public function getName() : string{
 		static $names = [
 			0 => "Purpur Block",
-			2 => "Purpur Pillar",
+			 => "",
             3 => "Purpur Pillar",
 		];
 
-		return $names[$this->meta & 0x0f] ?? "Purpur Block"; //TODO fix properly;
+		return $names[$this->meta & 0x03];
 	}
 	
 	public function place(Item $item, Block $block, Block $target, $face, $fx, $fy, $fz, Player $player = null){
