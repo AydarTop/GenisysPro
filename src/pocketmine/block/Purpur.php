@@ -79,7 +79,7 @@ class Purpur extends Solid{
 		if($item->isPickaxe() >= Tool::TIER_WOODEN){
 
 			return [
-				[$this->id, $this->meta & 0x0f, 1],
+				[$this->id, $this->meta & 0x03, 1],
 			];
 
 		}else{
